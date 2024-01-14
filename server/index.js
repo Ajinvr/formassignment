@@ -13,7 +13,7 @@ let details;
 let profile;
 
 const corsOptions = {
-    origin: 'frontendform.vercel.app',
+    origin: 'https://frontendform.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 201,
