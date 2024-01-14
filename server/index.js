@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require('cors');
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcryptjs")
 const port = 4000;
 const saltround = 10;
 
@@ -32,7 +32,7 @@ app.post('/', async (req, res) => {
         });
     }
     else{ 
-        let hashpass = await bcrypt.hash(password,saltround)
+        let hashpass = await bcrypt.hashSync(password,saltround)
         let formdetails ={
             name,
             email,
@@ -56,7 +56,7 @@ if (users.find(user=>user.email == details.emailval)) {
     let login = users.find(user=>user.email == details.emailval)
     let passwordoriginal = login.hashpass
     let passwordfrmuser = details.passwordval
-    let result = await bcrypt.compare(passwordfrmuser,passwordoriginal) 
+    let result = await bcrypt.compareSync(passwordfrmuser,passwordoriginal) 
     
     if (result) {
 
