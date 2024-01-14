@@ -12,8 +12,6 @@ let users = [];
 let details;
 let profile;
 
-app.use(express.static('public'));
-
 
 app.post('/', async (req, res) => {
     const {name,email,password} = req.body;
