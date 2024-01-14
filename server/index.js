@@ -12,6 +12,15 @@ let users = [];
 let details;
 let profile;
 
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 201,
+  };
+  
+  app.use(cors(corsOptions));
+
 
 app.post('/', async (req, res) => {
     const {name,email,password} = req.body;
